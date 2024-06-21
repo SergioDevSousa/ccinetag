@@ -13,7 +13,13 @@
 .container h2,
 .favoritar{
     padding: 0 1em;
+    font-size: 15px;
 }
 .favoritar{
     width: 25px;
+}
+.link{
+    text-decoration: none;
+    color: var(--preto);
+    text-align: left;
 }

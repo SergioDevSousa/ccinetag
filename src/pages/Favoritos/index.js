@@ -1,9 +1,11 @@
 import Banner from 'Componentes/Banner';
-import styles from './Favoritos.module.css';
 import Card from 'Componentes/Card';
 import Titulo from 'Componentes/Titulo';
+import { useFavoritoContext } from 'Contextos/Favoritos';
+import styles from './Favoritos.module.css';
 
 function Favoritos() {
+    const { favorito } = useFavoritoContext();
     return (
         <>
             <Banner imagem='favoritos' />
@@ -11,10 +13,12 @@ function Favoritos() {
                 <h1>Meus Favoritos</h1>
             </Titulo>
             <section className={styles.container}>
-                <Card id='1' titulo='O labirinto do Logcat' capa='https://img.ws.mms.shopee.com.br/br-11134207-7qukw-lf5n3oh4tzq770' />
+                {favorito.map((fav) => {
+                    return <Card {...fav} key={fav.id} />
+                })}
             </section>
         </>
     )
 }
 
-export default Favoritos
+export default Favoritos;
